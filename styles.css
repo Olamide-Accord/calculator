@@ -1,0 +1,248 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&display=swap');
+:root {
+  /* Theme 1 */
+  --mainBgTheme1: hsl(222, 26%, 31%);
+  --toggleBackgroundTheme1: hsl(223, 31%, 20%);
+  --screenBackgroundTheme1: hsl(224, 36%, 15%);
+  --keyBackground1Theme1: hsl(225, 21%, 49%);
+  --keyShadow1Theme1: hsl(224, 28%, 35%);
+  --keyBackground2Theme1: hsl(6, 63%, 50%);
+  --keyShadow2Theme1: hsl(6, 70%, 34%);
+  --keyBackground3Theme1: hsl(30, 25%, 89%);
+  --keyShadow3Theme1: hsl(28, 16%, 65%);
+  --text1:hsl(221, 14%, 31%);
+  --white: hsl(0, 0%, 100%);
+
+  /* Theme 2 */
+  --mainBgTheme2: hsl(0, 0%, 90%);
+  --toggleBackgroundTheme2: hsl(0, 5%, 81%);
+  --screenBackgroundTheme2: hsl(0, 0%, 93%);
+  --keyBackground1Theme2: hsl(185, 42%, 37%);
+  --keyShadow1Theme2: hsl(185, 58%, 25%);
+  --keyBackground2Theme2: hsl(25, 98%, 40%);
+  --keyShadow2Theme2: hsl(25, 99%, 27%);
+  --keyBackground3Theme2: hsl(45, 7%, 89%);
+  --keyShadow3Theme2: hsl(35, 11%, 61%);
+  --text2: hsl(60, 10%, 19%);
+
+
+  /* Theme 3 */
+  --mainBgTheme3: hsl(268, 75%, 9%);
+  --toggleBackgroundTheme3: hsl(268, 71%, 12%);
+  --screenBackgroundTheme3: hsl(268, 71%, 12%);
+  --keyBackground1Theme3: hsl(281, 89%, 26%);
+  --keyShadow1Theme3: hsl(285, 91%, 52%);
+  --keyBackground2Theme3: hsl(176, 100%, 44%);
+  --keyShadow2Theme3: hsl(177, 92%, 70%);
+  --keyBackground3Theme3: hsl(268, 47%, 21%);
+  --keyShadow3Theme3: hsl(290, 70%, 36%);
+  --text3: hsl(52, 100%, 62%);
+  --text4: hsl(198, 20%, 13%);
+}
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'League Spartan', sans-serif;
+}
+html{
+  font-size: 90%;
+}
+body{
+  background-color: var(--mainBgTheme1);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+}
+body[data-theme="2"] {
+  background-color: var(--mainBgTheme2);
+  color: var(--text2);
+}
+body[data-theme="3"] {
+  background-color: var(--mainBgTheme3);
+  color: var(--text3);
+}
+
+main{
+  width: 30rem;
+  margin: 2rem 1rem;
+}
+
+button{
+  outline: none;
+  border: none;
+}
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header-text{
+  font-size: 2rem;
+  
+}
+.theme{
+  display: flex;
+  align-items: flex-end;
+  gap: 1.65rem;
+}
+.theme-text{
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+  margin-bottom: 0.5rem;
+}
+
+/* slider */
+.range-display{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+.range-numbers{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 0.25rem;
+}
+.range-numbers p{
+  text-align: center;
+  font-size: 0.75rem;
+}
+.slidecontainer{
+  width: 3.5rem;
+}
+.slider {
+  -webkit-appearance: none; 
+  appearance: none;
+  width: 100%;
+  height: 18px; 
+  background: var(--screenBackgroundTheme1);
+  outline: none;
+  border-radius: 9999px;
+}
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px; 
+  background: var(--keyShadow2Theme1); 
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.slider::-moz-range-thumb {
+  width: 18px; 
+  height: 18px;
+  background: var(--keyShadow2Theme1); 
+  cursor: pointer;
+}
+
+/* Display */
+.display {
+  margin: 1rem 0;
+}
+.input-display{
+  width: 100%;
+  padding: 2rem 1.5rem;
+  font-size: 3rem;
+  background: var(--screenBackgroundTheme1);
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.25);
+  border: none;
+  outline: none;
+  border-radius: 0.5rem;
+  color: var(--white);
+  text-align: right;
+  cursor: text;
+}
+
+/* Calculator keys */
+.calculator{
+  background-color: var(--toggleBackgroundTheme1);
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.35);
+  width: 100%;
+  border-radius: 0.5rem;
+}
+.grid{
+  padding: 1.5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  grid-template: 
+    "number-7 number-8 number-9 delete"
+    "number-4 number-5 number-6 plus"
+    "number-1 number-2 number-3 minus"
+    "dot number-0 divide multiply"
+    "reset reset equal equal"
+  ;
+  gap: 1.4rem;
+}
+.grid button{
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  font-weight: 700;
+  text-align: center;
+  cursor: pointer;
+}
+.grid .numbers, .grid .operators{
+  background-color: var(--white);
+  color: var(--keyBackground1Theme1);
+  font-size: 2rem;
+}
+.flex{
+  display: flex;
+  gap: 1rem;
+}
+.delete{
+  font-size: 1.5rem;
+  background: var(--keyShadow1Theme1);
+  color: var(--white);
+}
+.reset{
+  grid-area: reset;
+  background: var(--keyShadow1Theme1);
+  color: var(--white);
+  font-size: 1.5rem;
+}
+.equal{
+  grid-area: equal;
+  background: var(--keyShadow2Theme1);
+  color: var(--white);
+  font-size: 2rem;
+}
+.equal:hover{
+  background-color: var(--keyBackground2Theme1);
+}
+
+
+@media screen and (min-width: 1440px) {
+  html{
+    font-size: 110%;
+  }
+  main{
+    width: 35rem;
+  }
+}
+@media screen and (max-width: 512px) {
+  html{
+    font-size: 85%;
+  }
+  body{
+    max-height: 100vh;
+  }
+  main{
+    width: 25rem;
+  }
+}
+@media screen and (max-width: 375px) {
+  html{
+    font-size: 70%;
+  }
+  main{
+    width: 22rem;
+  }
+}
